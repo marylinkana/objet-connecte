@@ -9,7 +9,13 @@ export class AppareilComponent implements OnInit {
   @Input() appareilName: string;
   @Input() appareilStatus: string;
 
-  constructor() { }
+  constructor() {
+    setTimeout(
+      () => {
+        this.isAuth = true;
+      }, 4000
+    );
+  }
 
   ngOnInit() {
   }
