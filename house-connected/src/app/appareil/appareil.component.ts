@@ -20,7 +20,7 @@ export class AppareilComponent implements OnInit {
   ngOnInit() {
   }
 
-  getColor() {
+  getTextColor() {
     if(this.appareilStatus === "allumé"){
       return "green";
     }

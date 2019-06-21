@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isAuth = false;
+  lastUpdate = new Promise((resolve, reject) => {
+    const date = new Date();
+    setTimeout(
+      () => {
+        resolve(date);
+      }, 2000
+    );
+  });
 
   lesAppareils = [
     {
@@ -27,22 +35,24 @@ export class AppComponent {
     setTimeout(
       () => {
         this.isAuth = true;
-      }, 4000
+      }, 3000
     );
   }
 
   onAllumerAll() {
     console.log('On allume tout !');
-    // ngFor (let appareil of this.lesAppareils){
-    //   appareil.status = "éteint";
-    // }
+    for(let appareil of this.lesAppareils) {
+      appareil.status = "allumé";
+    }
+    return this.lesAppareils;
   }
 
   onEteindreAll() {
     console.log('On eteint tout !');
-    // ngFor (let appareil of this.lesAppareils){
-    //   appareil.status = "éteint";
-    // }
+    for(let appareil of this.lesAppareils) {
+      appareil.status = "éteint";
+    }
+    return this.lesAppareils;
   }
 
 }
