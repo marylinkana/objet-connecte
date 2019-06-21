@@ -13,15 +13,38 @@ export class AppareilComponent implements OnInit {
     setTimeout(
       () => {
         this.isAuth = true;
-      }, 4000
+      }, 2000
     );
   }
 
   ngOnInit() {
   }
 
+  getColor() {
+    if(this.appareilStatus === "allumé"){
+      return "green";
+    }
+    else if(this.appareilStatus === "éteint"){
+      return "red";
+    }
+    else{
+      return "purple";
+    }
+  }
+
   getStatus() {
     return this.appareilStatus;
+  }
+
+  onAllumer() {
+    console.log('On allume : '+this.appareilName);
+    return this.appareilStatus = "allumé";
+  }
+
+  onEteindre() {
+    console.log('On eteint : '+this.appareilName);
+    return this.appareilStatus = "éteint";
+
   }
 
 }

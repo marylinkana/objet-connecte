@@ -8,9 +8,20 @@ import { Component } from '@angular/core';
 export class AppComponent {
   isAuth = false;
 
-  appareilOne = 'Machine à laver';
-  appareilTwo = 'Frigo';
-  appareilThree = 'Ordinateur';
+  lesAppareils = [
+    {
+      name:"Machine à laver",
+      status:"éteint"
+    },
+    {
+      name:"Ordinateur",
+      status:"éteint"
+    },
+    {
+      name:"frigo",
+      status:"éteint"
+    }
+  ];
 
   constructor() {
     setTimeout(
@@ -20,12 +31,18 @@ export class AppComponent {
     );
   }
 
-  onAllumer() {
+  onAllumerAll() {
     console.log('On allume tout !');
-}
+    // ngFor (let appareil of this.lesAppareils){
+    //   appareil.status = "éteint";
+    // }
+  }
 
-onEteindre() {
+  onEteindreAll() {
     console.log('On eteint tout !');
-}
+    // ngFor (let appareil of this.lesAppareils){
+    //   appareil.status = "éteint";
+    // }
+  }
 
 }
