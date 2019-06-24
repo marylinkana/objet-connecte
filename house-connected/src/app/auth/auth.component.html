@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Authentification</h2>
+      <button class="btn btn-success" [disabled]="isAuth" (click)="onConnection()"
+              *ngIf="!authStatus">Connection</button>
+      <button class="btn btn-danger" [disabled]="!isAuth" (click)="onDeconnection()"
+              *ngIf="authStatus">Déconnection</button>
+    </div>
+  </div>
+</div>
