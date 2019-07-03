@@ -15,7 +15,7 @@ export class AuthComponent implements OnInit {
   constructor(private authService : AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.authService = this.authService.isAuth;
+    this.authStatus = this.authService.isAuth;
   }
 
   onConnection() {

@@ -7,6 +7,7 @@ import { AppareilService } from '../services/appareil.service';
   styleUrls: ['./appareil.component.scss']
 })
 export class AppareilComponent implements OnInit {
+  isAuth = false;
   @Input() appareilName: string;
   @Input() appareilStatus: string;
   @Input() indexOfAppareil: number;
