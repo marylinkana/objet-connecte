@@ -4,11 +4,12 @@
       <h2>Mes appareils Connectés</h2>
       <p>Mis à jour : {{ lastUpdate | async | date: 'EEEE d MMMM y h:m:s' | uppercase }}</p>
       <ul class="list-group">
-          <app-appareil *ngFor="let appareil of lesAppareils; let i = index"
+          <app-appareil *ngFor="let unAppareil of lesAppareils; let i = index"
                         [indexOfAppareil]="i"
-                        [id]="appareil.id"
-                        [appareilName]="appareil.name"
-                        [appareilStatus]="appareil.status"></app-appareil>
+                        [id]="unAppareil.id"
+                        [description]="unAppareil.description"
+                        [appareilName]="unAppareil.name"
+                        [appareilStatus]="unAppareil.status"></app-appareil>
       </ul>
       <button class="btn btn-success" [disabled]="!isAuth" (click)="onAllumerAll()">Tout allumer</button>
       <button class="btn btn-danger" [disabled]="!isAuth" (click)="onEteindreAll()">Tout éteindre</button>

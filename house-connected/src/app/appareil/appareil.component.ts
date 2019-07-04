@@ -12,6 +12,8 @@ export class AppareilComponent implements OnInit {
   @Input() appareilStatus: string;
   @Input() indexOfAppareil: number;
   @Input() id: number;
+  @Input() description: string;
+
 
   constructor(private appareilService : AppareilService) {
     setTimeout(

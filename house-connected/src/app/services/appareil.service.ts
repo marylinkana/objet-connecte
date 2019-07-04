@@ -4,17 +4,20 @@ export class AppareilService {
     {
       id: 1,
       name:"Machine à laver",
-      status:"éteint"
+      status:"éteint",
+      description: "Ce lave-linge de classe A+ est 10% plus économique qu'un modèle de classe A. lave-linge PROLINE FP581WH blanc, capacité de 5 kg, 23 programmes, essorage de 800 tours/min, température de 20°/30°/40°/60°/90°C."
     },
     {
       id: 2,
       name:"Ordinateur",
-      status:"éteint"
+      status:"éteint",
+      description: "THOMSON Neo Classic · Windows OS · 14,1 po · 32 go de capacité du disque · Lecteur à état solide · Disque dur · 4 go de mémoire"
     },
     {
       id: 3,
       name:"frigo",
-      status:"éteint"
+      status:"éteint",
+      description: "Réfrigérateur à froid statique 119 L Congélateur à froid statique 42 L Volume total : 161 L - Dimensions HxLxP : 143 x 49,5 x 53,6 cm Classe A+ "
     }
   ];
 

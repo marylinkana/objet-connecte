@@ -20,8 +20,4 @@ export class AuthService {
     this.isAuth = false;
     console.log('singOut successful!');
   }
-
-  bonjour(){
-    return console.log("bonjour");
-  }
 }
