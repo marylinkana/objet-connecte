@@ -60,14 +60,27 @@ appareilSubject = new Subject<any[]>();
     console.log('On allume : '+this.lesAppareils[index].name);
     this.lesAppareils[index].status = "allumé";
     this.emitAppareilSubject();
-
   }
 
   switchOffOne(index: number) {
     console.log('On eteint : '+this.lesAppareils[index].name);
     this.lesAppareils[index].status = "éteint";
     this.emitAppareilSubject();
+  }
 
+  addAppareil(name: string, status: string, description: string) {
+    const appareilObject = {
+      id: 0,
+      name: '',
+      status: '',
+      description: '',
+    };
+    appareilObject.name = name;
+    appareilObject.status = status;
+    appareilObject.description = description;
+    appareilObject.id = this.lesAppareils[(this.lesAppareils.length - 1)].id + 1;
+    this.lesAppareils.push(appareilObject);
+    this.emitAppareilSubject();
   }
 
 

@@ -3,7 +3,9 @@
     <div class="navbar-collapse">
       <ul class="nav navbar-nav" *ngIf="!isAuth">
         <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
-        <!-- <li routerLinkActive="active"><a routerLink="appareils">Appareils</a></li> -->
+        <li routerLinkActive="active"><a routerLink="appareils">Appareils</a></li>
+        <li routerLinkActive="active"><a routerLink="edit">Nouvelle appareil</a></li>
+        <li routerLinkActive="active"><a routerLink="users">Utilisateurs</a></li>
       </ul>
       <div class="navbar-right" >
         <P>Vous ête connecté depuis {{secondes}} secondes</P>
