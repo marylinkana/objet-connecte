@@ -11,7 +11,7 @@ import { UserService } from '../services/user.service';
 export class UserListComponent implements OnInit, OnDestroy {
 
   private users: User[] = [
-    new User('Baudoin','KANA','baudoin@kana.com', 'Lecture', ['prier','méditer'])
+    new User('w', 'a', 'w', 'j', ['c', 'b'])
   ];
   userSubscription: Subscription;
 
@@ -25,8 +25,6 @@ export class UserListComponent implements OnInit, OnDestroy {
     );
     this.userService.emitUsers();
   }
-
-
 
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
