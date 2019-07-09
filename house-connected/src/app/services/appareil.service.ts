@@ -1,8 +1,12 @@
 import { Subject } from 'rxjs/Subject';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable()
 
 export class AppareilService {
 
-appareilSubject = new Subject<any[]>();
+  appareilSubject = new Subject<any[]>();
 
   private lesAppareils = [
     {
@@ -24,6 +28,8 @@ appareilSubject = new Subject<any[]>();
       description: "Réfrigérateur à froid statique 119 L Congélateur à froid statique 42 L Volume total : 161 L - Dimensions HxLxP : 143 x 49,5 x 53,6 cm Classe A+ "
     }
   ];
+
+  constructor(private httpClient: HttpClient){  }
 
   emitAppareilSubject() {
     this.appareilSubject.next(this.lesAppareils.slice());
@@ -83,5 +89,32 @@ appareilSubject = new Subject<any[]>();
     this.emitAppareilSubject();
   }
 
+  getAppareilsFromServer() {
+    this.httpClient
+      .get<any[]>('https://house-connected.firebaseio.com/lesAppareils.json')
+      .subscribe(
+        (response) => {
+          this.lesAppareils = response;
+          this.emitAppareilSubject();
+          console.log('récupération terminé !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
+
+  saveAppareilsToServer() {
+    this.httpClient
+      .put('https://house-connected.firebaseio.com/lesAppareils.json', this.lesAppareils)
+      .subscribe(
+        () => {
+          console.log('Sauvegarde terminé !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
 
 }

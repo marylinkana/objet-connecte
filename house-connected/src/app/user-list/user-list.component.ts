@@ -28,4 +28,12 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.userSubscription.unsubscribe();
   }
 
+  onSaveUsers() {
+    this.userService.saveUsersToServer();
+  }
+
+  onFetchUsers() {
+    this.userService.getUsersFromServer();
+  }
+
 }

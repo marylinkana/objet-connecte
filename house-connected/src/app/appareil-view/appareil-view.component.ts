@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 
 export class AppareilViewComponent implements OnInit{
-  isAuth = false;
+  isAuth = true;
   lastUpdate = new Promise((resolve, reject) => {
     const date = new Date();
     setTimeout(
@@ -18,35 +18,43 @@ export class AppareilViewComponent implements OnInit{
       }, 1000
     );
   }
-);
-
-lesAppareils = [];
-appareilSubscription: Subscription;
-
-constructor(private appareilService : AppareilService) {
-  setTimeout(
-    () => {
-      this.isAuth = true;
-    }, 1000
   );
-}
 
-ngOnInit() {
-  this.appareilSubscription = this.appareilService.appareilSubject.subscribe(
-    (lesAppareils: any[]) => {
-      this.lesAppareils = lesAppareils;
-    }
-  );
-  this.appareilService.emitAppareilSubject();
-}
+  lesAppareils = [];
+  appareilSubscription: Subscription;
 
-onAllumerAll() {
-  this.appareilService.switchOnAll();
+  constructor(private appareilService : AppareilService) {
+    // setTimeout(
+    //   () => {
+    //     this.isAuth = true;
+    //   }, 1000
+    // );
+  }
 
-}
+  ngOnInit() {
+    this.appareilSubscription = this.appareilService.appareilSubject.subscribe(
+      (lesAppareils: any[]) => {
+        this.lesAppareils = lesAppareils;
+      }
+    );
+    this.appareilService.emitAppareilSubject();
+  }
 
-onEteindreAll() {
-  this.appareilService.switchOffAll();
-}
+  onAllumerAll() {
+    this.appareilService.switchOnAll();
+
+  }
+
+  onEteindreAll() {
+    this.appareilService.switchOffAll();
+  }
+
+  onSave() {
+    this.appareilService.saveAppareilsToServer();
+  }
+
+  onFetch() {
+    this.appareilService.getAppareilsFromServer();
+  }
 
 }

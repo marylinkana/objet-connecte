@@ -13,6 +13,8 @@
       </ul>
       <button class="btn btn-success" [disabled]="!isAuth" (click)="onAllumerAll()">Tout allumer</button>
       <button class="btn btn-danger" [disabled]="!isAuth" (click)="onEteindreAll()">Tout éteindre</button>
+      <button class="btn btn-primary" [disabled]="!isAuth" (click)="onSave()">Sauvegarder</button>
+      <button class="btn btn-primary" [disabled]="!isAuth" (click)="onFetch()">Rafraichir</button>
     </div>
   </div>
 </div>

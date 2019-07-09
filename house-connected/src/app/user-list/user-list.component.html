@@ -8,5 +8,7 @@
       <span *ngFor="let hobby of user.hobbies">{{ hobby }} - </span>
     </p>
   </li>
-  <a routerLink="/new-user">Nouvel utilisateur</a>
 </ul>
+<button class="btn btn-primary" (click)="onSaveUsers()">Sauvegarder</button>
+<button class="btn btn-secondary" (click)="onFetchUsers()">Rafraichir</button>
+<a class="btn btn-success" routerLink="/new-user">Ajouter</a>
